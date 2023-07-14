@@ -1,11 +1,11 @@
--- Show the employees table
-SELECT * FROM employees;
+-- Show initial state of the users table
+SELECT * FROM users;
 
--- Insert sample data
-INSERT INTO employees (first_name, last_name) VALUES ('John', 'Doe');
-INSERT INTO employees (first_name, last_name) VALUES ('Jane', 'Smith');
-INSERT INTO employees (first_name, last_name) VALUES ('Michael', 'Johnson');
+-- Insert some data into the users table
+INSERT INTO users (email, name) VALUES ("bob@dylan.com", "Bob");
+INSERT INTO users (email, name) VALUES ("sylvie@dylan.com", "Sylvie");
+INSERT INTO users (email, name) VALUES ("bob@dylan.com", "Jean");
 
--- Show the employees table after insertion
-SELECT * FROM employees;
+-- Show the updated state of the users table
+SELECT * FROM users;
 
