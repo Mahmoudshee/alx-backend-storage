@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+"""List documents with name='Holberton school'"""
+
+from pymongo import MongoClient
+
+
+if __name__ == "__main__":
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    my_db = client.my_db
+    school_collection = my_db.school
+    documents = list(school_collection.find({"name": "Holberton school"}))
+    for document in documents:
+        print(document)
+

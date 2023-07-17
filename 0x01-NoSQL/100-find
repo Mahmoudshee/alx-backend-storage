@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""Find documents using regex"""
+
+from pymongo import MongoClient
+import re
+
+
+if __name__ == "__main__":
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    my_db = client.my_db
+    school_collection = my_db.school
+
+    regex = re.compile('^Holberton', re.IGNORECASE)
+    documents = list(school_collection.find({"name": regex}))
+    for document in documents:
+        print(document)
+
