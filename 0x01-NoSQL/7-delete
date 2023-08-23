@@ -1,14 +1,2 @@
-#!/usr/bin/env python3
-"""Delete documents"""
-
-from pymongo import MongoClient
-
-
-if __name__ == "__main__":
-    client = MongoClient('mongodb://127.0.0.1:27017')
-    my_db = client.my_db
-    school_collection = my_db.school
-    delete_query = {"name": "Holberton school"}
-    result = school_collection.delete_many(delete_query)
-    print("Deleted documents:", result.deleted_count)
-
+//Delete multi matches
+db.school.deleteMany({"name":"Holberton school"})

@@ -1,20 +1,11 @@
 #!/usr/bin/env python3
-"""Insert a document in Python"""
-
-from pymongo import MongoClient
+"""This script provides a means to insert 
+   new documents to a collection
+"""
 
 
 def insert_school(mongo_collection, **kwargs):
-    return mongo_collection.insert_one(kwargs).inserted_id
-
-
-if __name__ == "__main__":
-    client = MongoClient('mongodb://127.0.0.1:27017')
-    school_collection = client.my_db.school
-    new_school_id = insert_school(school_collection, name="UCSF", address="505 Parnassus Ave")
-    print("New school created:", new_school_id)
-
-    schools = list_all(school_collection)
-    for school in schools:
-        print("[{}] {} {}".format(school.get('_id'), school.get('name'), school.get('address', "")))
-
+    """Return the id of an inserted document"""
+    doc = {key:value for key, value in kwargs.items()}
+    result =  mongo_collection.insert_one(doc)
+    return result.inserted_id
